@@ -37,7 +37,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 # 타이타닉 생존자 예측기
 
 
-연습: 타이타닉 데이터셋 다루기.  https://homl.info/titanic.tgz에서 데이터를 받아 2챕터에서 한 것처럼 압축해제 하면 된다.  _train.csv와 test.csv 두개의 CSV파일을 받을 수 있다. 목표는 다른 열을 기반으로 생존 열을 예측할 수 있는 분류기를 훈련하는 것이다.
+연습: 타이타닉 데이터셋 다루기.  <https://homl.info/titanic.tgz>에서 데이터를 받아 2챕터에서 한 것처럼 압축해제 하면 된다.  _train.csv와 test.csv 두개의 CSV파일을 받을 수 있다. 목표는 다른 열을 기반으로 생존 열을 예측할 수 있는 분류기를 훈련하는 것이다.
 
 
 
