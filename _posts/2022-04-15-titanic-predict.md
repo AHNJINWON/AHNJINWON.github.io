@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "2018250028-titanic survive"
+title:  "titanic survive"
 categories: jupyter
 toc: true
 author_profile: false
