@@ -1,7 +1,6 @@
 ---
 layout: single
 title:  "titanic survive"
-categories: jupyter
 toc: true
 author_profile: false
 ---
