@@ -1,1 +1,6 @@
+---
+layout: post
+title:  "titanic_survive"
+---
 
+# 타이타닉 생존 데이터
