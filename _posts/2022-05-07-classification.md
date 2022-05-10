@@ -1120,11 +1120,11 @@ Netron은 모델을 보게 도와주는 도구입니다.
 index.html 파일에서, 다음 마크업을 추가합니다.
 
 
-`<!DOCTYPE html>`
+```
 
+<!DOCTYPE html>
 
-
-`<html>`
+<html>
 
 
 
@@ -1142,13 +1142,17 @@ index.html 파일에서, 다음 마크업을 추가합니다.
 
     </body>
 
-`</html>`
+</html>
+
+```
 
 
 지금부터, body 테그에서 작업하며, 일부 요소를 반영하는 체크박스의 리스트로 보여줄 약간의 마크업을 추가합니다:
 
 
-`<h1>Check your refrigerator. What can you create?</h1>`
+```
+
+<h1>Check your refrigerator. What can you create?</h1>
 
 
 
@@ -1230,6 +1234,8 @@ index.html 파일에서, 다음 마크업을 추가합니다.
 
         </div> 
 
+```
+
 
 각 체크박스에 값이 주어졌습니다. 데이터셋에 따라서 식재료가 발견된 인덱스를 반영합니다. Apple을 예시로 들면, 알파벳 리스트에서, 5번째 열을 차지하므로, 0부터 세기 시작해서 값은 '4'가 됩니다. 주어진 식재료의 색인을 찾기 위해서 ingredients spreadsheet를 참고할 수 있습니다
 
@@ -1240,13 +1246,15 @@ index.html 파일에 작업을 계속 이어서, 마지막 닫는 </div> 뒤에 
 먼저, Onnx Runtime을 가져옵니다:
 
 
-`<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.8.0-dev.20210608.0/dist/ort.min.js"></script> `
+```<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.8.0-dev.20210608.0/dist/ort.min.js"></script> ```
 
 
 런타임이 준비되면 다음과 같이 호출할 수 있습니다.
 
 
-`<script>`
+```
+
+<script>
 
 
 
@@ -1386,22 +1394,18 @@ index.html 파일에 작업을 계속 이어서, 마지막 닫는 </div> 뒤에 
 
         </script>
 
+  ```
+
 
 전체 코드:
 
+```
 
+<!DOCTYPE html>
 
-`<!DOCTYPE html>`
+<html> 
 
-
-
-`<html>`
-
-    
-
-    `<header>`
-
-
+    <header>
 
         <title>Cuisine Matcher</title>
 
@@ -1581,17 +1585,13 @@ index.html 파일에 작업을 계속 이어서, 마지막 닫는 </div> 뒤에 
 
     }
 
-           
-
-`</script>`
-
-
+           </script>
 
     </body>
 
+</html>
 
-
-`</html>`
+```
 
 
 이 코드에서, 몇가지 해프닝이 생깁니다:
