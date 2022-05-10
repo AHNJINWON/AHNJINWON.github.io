@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "classification"
+title:  "classification!"
 categories: coding
 toc: true
 author_profile: false
@@ -119,10 +119,10 @@ pip install imblearn
 <pre>
 Requirement already satisfied: imblearn in /usr/local/lib/python3.7/dist-packages (0.0)
 Requirement already satisfied: imbalanced-learn in /usr/local/lib/python3.7/dist-packages (from imblearn) (0.8.1)
-Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.1.0)
 Requirement already satisfied: scipy>=0.19.1 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.4.1)
-Requirement already satisfied: numpy>=1.13.3 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.21.6)
 Requirement already satisfied: scikit-learn>=0.24 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.0.2)
+Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.1.0)
+Requirement already satisfied: numpy>=1.13.3 in /usr/local/lib/python3.7/dist-packages (from imbalanced-learn->imblearn) (1.21.6)
 Requirement already satisfied: threadpoolctl>=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn>=0.24->imbalanced-learn->imblearn) (3.1.0)
 </pre>
 
@@ -196,7 +196,7 @@ df.cuisine.value_counts().plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f8627dfd0>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea77e08d0>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -254,7 +254,7 @@ thai_ingredient_df.head(10).plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f8b196310>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea76f8090>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -267,7 +267,7 @@ japanese_ingredient_df.head(10).plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f85eeead0>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea76b2fd0>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -280,7 +280,7 @@ chinese_ingredient_df.head(10).plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f86232750>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea70e6650>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -293,7 +293,7 @@ indian_ingredient_df.head(10).plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f85d85990>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea71c2850>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -306,7 +306,7 @@ korean_ingredient_df.head(10).plot.barh()
 ```
 
 <pre>
-<matplotlib.axes._subplots.AxesSubplot at 0x7f9f85d46f50>
+<matplotlib.axes._subplots.AxesSubplot at 0x7f3ea704d490>
 </pre>
 <pre>
 <Figure size 432x288 with 1 Axes>
@@ -617,7 +617,7 @@ print ("Accuracy is {}".format(accuracy))
 ```
 
 <pre>
-Accuracy is 0.8215179316096747
+Accuracy is 0.804837364470392
 </pre>
 하나의 행 데이터 (#50)를 테스트하면 모델이 작동하는 것을 볼 수 있습니다:
 
@@ -629,8 +629,11 @@ print(f'cuisine: {y_test.iloc[50]}')
 ```
 
 <pre>
-ingredients: Index(['scallion', 'sesame_oil', 'vegetable_oil', 'wheat'], dtype='object')
-cuisine: chinese
+ingredients: Index(['beef', 'black_pepper', 'cayenne', 'egg', 'mung_bean', 'mushroom',
+       'nut', 'sesame_oil', 'sesame_seed', 'shiitake', 'soy_sauce', 'soybean',
+       'starch', 'vegetable', 'vinegar'],
+      dtype='object')
+cuisine: korean
 </pre>
 깊게 파보면, 예측 정확도를 확인할 수 있습니다:
 
@@ -651,12 +654,12 @@ topPrediction.head()
   "X does not have valid feature names, but"
 </pre>
 <pre>
-                 0
-chinese   0.496761
-korean    0.334731
-japanese  0.094895
-indian    0.056211
-thai      0.017403
+                     0
+korean    7.225356e-01
+chinese   2.662729e-01
+japanese  1.118427e-02
+thai      6.755250e-06
+indian    4.428481e-07
 </pre>
 classification 리포트를 출력해서 자세한 정보를 얻습니다:
 
@@ -670,15 +673,15 @@ print(classification_report(y_test,y_pred))
 <pre>
               precision    recall  f1-score   support
 
-     chinese       0.78      0.72      0.75       238
-      indian       0.95      0.90      0.92       243
-    japanese       0.77      0.78      0.78       242
-      korean       0.86      0.79      0.82       242
-        thai       0.77      0.92      0.84       234
+     chinese       0.71      0.70      0.71       236
+      indian       0.93      0.91      0.92       246
+    japanese       0.74      0.81      0.77       218
+      korean       0.87      0.77      0.81       258
+        thai       0.77      0.84      0.80       241
 
-    accuracy                           0.82      1199
-   macro avg       0.82      0.82      0.82      1199
-weighted avg       0.83      0.82      0.82      1199
+    accuracy                           0.80      1199
+   macro avg       0.81      0.80      0.80      1199
+weighted avg       0.81      0.80      0.81      1199
 
 </pre>
 ## 3. 더 많은 classifiers
@@ -805,66 +808,66 @@ for index, (name, classifier) in enumerate(classifiers.items()):
 ```
 
 <pre>
-Accuracy (train) for Linear SVC: 77.6% 
+Accuracy (train) for Linear SVC: 79.6% 
               precision    recall  f1-score   support
 
-     chinese       0.70      0.67      0.68       233
-      indian       0.92      0.85      0.88       243
-    japanese       0.69      0.79      0.74       225
-      korean       0.86      0.75      0.80       239
-        thai       0.74      0.81      0.78       259
+     chinese       0.69      0.76      0.73       236
+      indian       0.89      0.88      0.89       257
+    japanese       0.78      0.74      0.76       239
+      korean       0.83      0.74      0.78       222
+        thai       0.80      0.84      0.82       245
 
-    accuracy                           0.78      1199
-   macro avg       0.78      0.77      0.78      1199
-weighted avg       0.78      0.78      0.78      1199
+    accuracy                           0.80      1199
+   macro avg       0.80      0.79      0.79      1199
+weighted avg       0.80      0.80      0.80      1199
 
-Accuracy (train) for KNN classifier: 69.7% 
+Accuracy (train) for KNN classifier: 71.9% 
               precision    recall  f1-score   support
 
-     chinese       0.57      0.73      0.64       233
-      indian       0.88      0.79      0.83       243
-    japanese       0.58      0.83      0.68       225
-      korean       0.93      0.54      0.68       239
-        thai       0.72      0.63      0.67       259
+     chinese       0.60      0.73      0.66       236
+      indian       0.89      0.79      0.84       257
+    japanese       0.59      0.82      0.69       239
+      korean       0.93      0.57      0.70       222
+        thai       0.75      0.67      0.71       245
 
-    accuracy                           0.70      1199
-   macro avg       0.73      0.70      0.70      1199
-weighted avg       0.74      0.70      0.70      1199
+    accuracy                           0.72      1199
+   macro avg       0.75      0.72      0.72      1199
+weighted avg       0.75      0.72      0.72      1199
 
-Accuracy (train) for SVC: 82.2% 
+Accuracy (train) for SVC: 82.6% 
               precision    recall  f1-score   support
 
-     chinese       0.76      0.73      0.75       233
-      indian       0.93      0.92      0.92       243
-    japanese       0.76      0.81      0.78       225
-      korean       0.88      0.77      0.82       239
-        thai       0.80      0.87      0.83       259
+     chinese       0.74      0.75      0.75       236
+      indian       0.90      0.90      0.90       257
+    japanese       0.84      0.77      0.80       239
+      korean       0.87      0.81      0.84       222
+        thai       0.79      0.89      0.84       245
 
-    accuracy                           0.82      1199
-   macro avg       0.82      0.82      0.82      1199
-weighted avg       0.83      0.82      0.82      1199
+    accuracy                           0.83      1199
+   macro avg       0.83      0.82      0.82      1199
+weighted avg       0.83      0.83      0.83      1199
 
-Accuracy (train) for RFST: 83.7% 
+Accuracy (train) for RFST: 84.2% 
               precision    recall  f1-score   support
 
-     chinese       0.83      0.76      0.79       233
-      indian       0.93      0.93      0.93       243
-    japanese       0.76      0.82      0.79       225
-      korean       0.83      0.78      0.81       239
-        thai       0.83      0.89      0.86       259
+     chinese       0.83      0.74      0.78       236
+      indian       0.90      0.91      0.91       257
+    japanese       0.82      0.83      0.82       239
+      korean       0.85      0.82      0.83       222
+        thai       0.81      0.90      0.85       245
 
     accuracy                           0.84      1199
-   macro avg       0.84      0.83      0.83      1199
+   macro avg       0.84      0.84      0.84      1199
 weighted avg       0.84      0.84      0.84      1199
 
-Accuracy (train) for ADA: 71.0% 
+Accuracy (train) for ADA: 71.2% 
               precision    recall  f1-score   support
 
-     chinese       0.66      0.46      0.54       233
-      indian       0.87      0.83      0.85       243
-    japanese       0.58      0.69      0.63       225
-      korean       0.72      0.79      0.75       239
-        thai       0.72      0.77      0.74       259
+     chinese       0.65      0.47      0.54       236
+      indian       0.88      0.83      0.86       257
+    japanese       0.68      0.59      0.63       239
+      korean       0.66      0.84      0.74       222
+        thai       0.69      0.83      0.75       245
 
     accuracy                           0.71      1199
    macro avg       0.71      0.71      0.70      1199
@@ -904,17 +907,25 @@ import pandas as pd
 ```
 
 <pre>
-Requirement already satisfied: skl2onnx in /usr/local/lib/python3.7/dist-packages (1.11.1)
+Collecting skl2onnx
+  Downloading skl2onnx-1.11.1-py3-none-any.whl (276 kB)
+[K     |████████████████████████████████| 276 kB 4.6 MB/s 
+[?25hRequirement already satisfied: numpy>=1.15 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.21.6)
 Requirement already satisfied: scikit-learn>=0.19 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.0.2)
-Requirement already satisfied: scipy>=1.0 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.4.1)
-Requirement already satisfied: onnx>=1.2.1 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.11.0)
-Requirement already satisfied: numpy>=1.15 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.21.6)
-Requirement already satisfied: onnxconverter-common>=1.7.0 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.9.0)
+Collecting onnx>=1.2.1
+  Downloading onnx-1.11.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (12.8 MB)
+[K     |████████████████████████████████| 12.8 MB 19.7 MB/s 
+[?25hRequirement already satisfied: scipy>=1.0 in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (1.4.1)
 Requirement already satisfied: protobuf in /usr/local/lib/python3.7/dist-packages (from skl2onnx) (3.17.3)
-Requirement already satisfied: typing-extensions>=3.6.2.1 in /usr/local/lib/python3.7/dist-packages (from onnx>=1.2.1->skl2onnx) (4.2.0)
+Collecting onnxconverter-common>=1.7.0
+  Downloading onnxconverter_common-1.9.0-py2.py3-none-any.whl (78 kB)
+[K     |████████████████████████████████| 78 kB 4.2 MB/s 
+[?25hRequirement already satisfied: typing-extensions>=3.6.2.1 in /usr/local/lib/python3.7/dist-packages (from onnx>=1.2.1->skl2onnx) (4.2.0)
 Requirement already satisfied: six>=1.9 in /usr/local/lib/python3.7/dist-packages (from protobuf->skl2onnx) (1.15.0)
 Requirement already satisfied: threadpoolctl>=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn>=0.19->skl2onnx) (3.1.0)
 Requirement already satisfied: joblib>=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn>=0.19->skl2onnx) (1.1.0)
+Installing collected packages: onnx, onnxconverter-common, skl2onnx
+Successfully installed onnx-1.11.0 onnxconverter-common-1.9.0 skl2onnx-1.11.1
 </pre>
 그리고, read_csv()를 사용해서 CSV 파일을 읽어, 이전 강의에서 했던 같은 방식으로 데이터를 작업합니다:
 
@@ -1046,15 +1057,15 @@ print(classification_report(y_test,y_pred))
 <pre>
               precision    recall  f1-score   support
 
-     chinese       0.72      0.72      0.72       246
-      indian       0.89      0.88      0.89       239
-    japanese       0.79      0.78      0.79       233
-      korean       0.85      0.78      0.81       243
-        thai       0.77      0.86      0.82       238
+     chinese       0.72      0.77      0.75       233
+      indian       0.88      0.89      0.89       226
+    japanese       0.80      0.78      0.79       247
+      korean       0.85      0.81      0.83       245
+        thai       0.79      0.79      0.79       248
 
-    accuracy                           0.80      1199
-   macro avg       0.81      0.80      0.80      1199
-weighted avg       0.81      0.80      0.80      1199
+    accuracy                           0.81      1199
+   macro avg       0.81      0.81      0.81      1199
+weighted avg       0.81      0.81      0.81      1199
 
 </pre>
 ### 모델을 Onnx로 변환하기
@@ -1109,11 +1120,17 @@ Netron은 모델을 보게 도와주는 도구입니다.
 index.html 파일에서, 다음 마크업을 추가합니다.
 
 
-<!DOCTYPE html>
+`<!DOCTYPE html>`
 
-<html>
+
+
+`<html>`
+
+
 
     <header>
+
+
 
         <title>Cuisine Matcher</title>
 
@@ -1125,13 +1142,15 @@ index.html 파일에서, 다음 마크업을 추가합니다.
 
     </body>
 
-</html>
+`</html>`
 
 
 지금부터, body 테그에서 작업하며, 일부 요소를 반영하는 체크박스의 리스트로 보여줄 약간의 마크업을 추가합니다:
 
 
-<h1>Check your refrigerator. What can you create?</h1>
+`<h1>Check your refrigerator. What can you create?</h1>`
+
+
 
         <div id="wrapper">
 
@@ -1227,7 +1246,9 @@ index.html 파일에 작업을 계속 이어서, 마지막 닫는 </div> 뒤에 
 런타임이 준비되면 다음과 같이 호출할 수 있습니다.
 
 
-\<script>
+`<script>`
+
+
 
             const ingredients = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -1364,6 +1385,213 @@ index.html 파일에 작업을 계속 이어서, 마지막 닫는 </div> 뒤에 
            
 
         </script>
+
+
+전체 코드:
+
+
+
+`<!DOCTYPE html>`
+
+
+
+`<html>`
+
+    
+
+    `<header>`
+
+
+
+        <title>Cuisine Matcher</title>
+
+    </header>
+
+    <body>
+
+      <h1>Check your refrigerator. What can you create?</h1>
+
+        <div id="wrapper">
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="4" class="checkbox">
+
+                <label>apple</label>
+
+            </div>
+
+        
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="247" class="checkbox">
+
+                <label>pear</label>
+
+            </div>
+
+        
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="77" class="checkbox">
+
+                <label>cherry</label>
+
+            </div>
+
+
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="126" class="checkbox">
+
+                <label>fenugreek</label>
+
+            </div>
+
+
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="302" class="checkbox">
+
+                <label>sake</label>
+
+            </div>
+
+
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="327" class="checkbox">
+
+                <label>soy sauce</label>
+
+            </div>
+
+
+
+            <div class="boxCont">
+
+                <input type="checkbox" value="112" class="checkbox">
+
+                <label>cumin</label>
+
+            </div>
+
+        </div>
+
+        <div style="padding-top:10px">
+
+            <button onClick="startInference()">What kind of cuisine can you make?</button>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.9.0/dist/ort.min.js"></script> 
+
+        <script>
+
+    const ingredients = Array(380).fill(0);
+
+    
+
+    const checks = [...document.querySelectorAll('.checkbox')];
+
+    
+
+    checks.forEach(check => {
+
+        check.addEventListener('change', function() {
+
+            // toggle the state of the ingredient
+
+            // based on the checkbox's value (1 or 0)
+
+            ingredients[check.value] = check.checked ? 1 : 0;
+
+        });
+
+    });
+
+
+
+    function testCheckboxes() {
+
+        // validate if at least one checkbox is checked
+
+        return checks.some(check => check.checked);
+
+    }
+
+
+
+    async function startInference() {
+
+
+
+        let atLeastOneChecked = testCheckboxes()
+
+
+
+        if (!atLeastOneChecked) {
+
+            alert('Please select at least one ingredient.');
+
+            return;
+
+        }
+
+        try {
+
+            // create a new session and load the model.
+
+            
+
+            const session = await ort.InferenceSession.create('./model.onnx');
+
+
+
+            const input = new ort.Tensor(new Float32Array(ingredients), [1, 380]);
+
+            const feeds = { float_input: input };
+
+
+
+            // feed inputs and run
+
+            const results = await session.run(feeds);
+
+
+
+            // read from results
+
+            alert('You can enjoy ' + results.label.data[0] + ' cuisine today!')
+
+
+
+        } catch (e) {
+
+            console.log(`failed to inference ONNX model`);
+
+            console.error(e);
+
+        }
+
+    }
+
+           
+
+`</script>`
+
+
+
+    </body>
+
+
+
+`</html>`
 
 
 이 코드에서, 몇가지 해프닝이 생깁니다:
